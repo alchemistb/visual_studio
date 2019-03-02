@@ -32,7 +32,7 @@ try:
 
 	def theBrain():
 		#foo = {'rt2win','rt to win','rt 2 win', 'retweet to win'}
-		foo = {'shoes'}
+		foo = {'gladney'}
 		#Fetch n number of tweets where n is given by count, having the keyword given in q
 		#Search for tweets that have "retweet to win" in the message
 		statement = t.search.tweets(q = foo, count = 1)
