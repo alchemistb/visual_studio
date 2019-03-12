@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Learning Java Basics</title>
+  <link rel="stylesheet" href="style.css" />
+   </head>
+<body>
+<div class="header"> 
+  <h1 id="heading"> Learning Javascript</h1>
+  <p>With BG</p>
+</div>
+<div class = "container">
+  <button onclick="doClick()">Click Me</button>
+  <button onclick="this.innerHTML = 'You Clicked!'">Click Here</button>
+  <button onclick="changeText(this)">Click Right Here</button>
+  <button onclick="showDate()">Show Date</button>
+  <button onmouseover="showDate()">Show Date</button>
+  <button onmouseout="clearDate()" onmouseover="showDate()">Show Date</button>
+  <h1 id="time"></h1>
+</div>
+  
+<script>
+// To add an external java script file,  
+// insert this into the <head></head>
+// <script src="test.js"> 
+  // alert("Data Tag works!");  
+  console.log('Hello');
+  console.log('car'); 
+  
+  var numbers = [55,66,77,88,99]
+  console.log(numbers);
+   numbers.push(10);
+   console.log(numbers);
+   console.log(numbers[0]);
+   console.log(numbers[3]);
+   console.log('The magic number is ' +numbers[5]);
+   console.log('combine ' +numbers[2] +  +numbers[5]);
+   console.log('Iterate through numbers array, ');
+   console.log('Until the length of numbers array is exceed.');
+   //numbers.reverse();
+   
+   // For Loop Example
+   for(i = 0; i < numbers.length; i++){
+      console.log(numbers[i]);
+   }
+
+   // While Loop Example
+   var x = 0;
+   while(x < 10){
+     console.log(x);
+     x++;
+   }
+   
+   // Conditionals If, If/else
+   var var1 = 3;
+   var var2 = 4;
+   
+   if(var2 == 4){
+    console.log('Correct!')
+   }
+   
+   if(var1 == 1){
+     console.log('This is not correct')
+   }
+   
+   if(var1 == 3 && var2 == 4){
+     console.log('This is true');
+   } else{
+      console.log('This is False!')
+   }
+
+
+   if(var1 == 1 || var2 ==5){
+     console.log('This is kind of true')
+   } else{
+      console.log('This is totally false');
+   }
+
+   // Switch Statements 
+   // Pay attention to indentions
+
+   var fruit = 'banana';
+
+   switch(fruit){
+    case "banana":
+      //alert('I hate bananas');
+      console.log('I hate bananas');
+      break;
+    case "apple":
+      alert('I love apples!');
+      //console.log('I love apples!');
+      break;
+    case "orange": 
+      alert('Oranges are okay');
+      //console.log('Oranges are okay');
+      break;
+    default:
+      alert('I love all other fruits');
+      //console.log('I love all other fruits'); 
+      break; 
+   }
+
+
+   // Object Literal (similar to JSON/dict <key:value> format)
+
+   var person={
+     firstname: 'Kobe',
+     lastname: 'Bryant',
+     age: 34,
+     // Add 'children' as an array
+     children: ['daugher - Kobilta', 'son - Kobe Jr.'],
+     // Add an embeded object called address
+     // (Don't foget to add comma after previous statement)
+     address: {
+       street: '555 Something Lane',
+       city: 'Los Angeles',
+       state: 'CA' 
+     },
+     // Add functions called fullName and Location into the object, using 'this' method
+     //(This refers to the data inside THIS data object)
+     fullName:function(){
+       console.log('The fullname function:');
+       return this.firstname+' '+this.lastname;
+     },
+     Location:function(){
+       console.log('The Location function:');
+       return this.address.street+' '+this.address.city+' '+this.address.state;
+     }
+   }
+
+   console.log(person.firstname);
+   console.log(person.age);
+   console.log(person.children[0]);
+   console.log(person.children[1]);
+   console.log(person.address);
+   console.log(person.address.street);
+   console.log(person.address.city);
+   console.log(person.address.state);
+   // When calleing a function, include () after the function name
+   console.log(person.fullName());
+   console.log(person.Location());
+
+
+  // Object Constructor
+
+  // create an object called 'apple' with color and shape propoerties
+  var apple = new Object();
+  apple.color = 'red';
+  apple.shape = 'round';
+
+ // Add an apple function 
+  apple.describe=function(){
+    return 'An apple is the color '+this.color+ ' and is the shape '+this.shape;
+  }
+  console.log('The apple Object:');
+  console.log(apple);
+  console.log('The apple function:');
+  console.log(apple.describe());
+  console.log('');
+
+
+// Constructor Pattern
+
+function Fruit(name,color,shape){
+  this.name = name;
+  this.color = color;
+  this.shape = shape;
+  // creating a describe method in the function
+  this.describe = function(){
+    return 'A/An '+this.name+ ' is the color '+this.color+ ' and is the shape '+this.shape;
+  }
+}
+
+// create an apple, melon, banana variables and assign them to the Fruit function, using 'new'
+// Pass name, color, and shape properties
+var apple = new Fruit('apple', 'red','round');
+
+var melon = new Fruit('melon', 'green', 'round');
+
+var banana = new Fruit('banana', 'yellow', 'curved');
+
+console.log('Using the Constructor Pattern:');
+console.log(apple);
+console.log(melon);
+console.log(banana);
+console.log('');
+console.log('Using the describe method inside of Fruit Function:')
+console.log(melon.describe());
+console.log(apple.describe());
+console.log(banana.describe());
+
+
+//Arrays of objects
+
+var users = [
+  {
+    name: 'John Doe',
+    age:  30
+  },
+  {
+    name: 'Mark Smith',
+    age:  44
+  },
+  {
+    name: 'Shelly Williams',
+    age:  20
+  }
+];
+
+console.log('');
+console.log('Array of Objects:');
+console.log(users);
+console.log(users[0]);
+console.log(users[1]);
+console.log(users[2]);
+
+
+// Events
+// Create a doClick function
+
+function doClick(){
+  alert('****You clicked!*****');
+};
+
+// Create a changeText function, pass id
+
+//function changeText(id){
+  //id.innerHTML= 'You Clicked Over Here!';
+//};
+
+
+function changeText(){
+  var heading = document.getElementById('heading');
+  heading.innerHTML = 'You Clicked!';
+};
+
+function showDate(){
+  var time = document.getElementById('time');
+  time.innerHTML = Date();
+};
+
+function clearDate(){
+  var time = document.getElementById('time');
+  time.innerHTML = ' ';
+};
+
+
+
+// Forms
+
+
+
+
+  </script>
+  
+</body>
+</html>
